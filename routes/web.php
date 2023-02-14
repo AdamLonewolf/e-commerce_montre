@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [VignetteController::class, "index"])->name('accueil');
 Route::get('/Voir_montre/{id}', [VignetteController::class, "show"])->name('Voir_article');
 Route::get('/categorie/{id}', [CategoryController::class, "show"])->name('Voir_categorie_produit');
+Route::get('/slug/{id}', [CategoryController::class, "slug"])->name('Voir_slug_produit');
 
 // Route::get('/', function () {
 //       return view('child.vignette');

@@ -10,7 +10,7 @@
     <title>E-commerce Montres</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
-
+    <link rel="stylesheet" href=" {{URL::to('css/style.css')}} ">
     <!-- Bootstrap core CSS -->
 <link href="{{URL::to('css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link href="{{Asset('css/tshirt.css')}}" rel="stylesheet">

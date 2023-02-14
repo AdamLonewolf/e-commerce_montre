@@ -3,3 +3,18 @@
     height: 349px;
     width: auto;
 }
+
+
+.my_nav{
+    background-color: #58D68D;
+    font-weight: bold;
+}
+
+.my_nav ul li a{
+    color: #fff !important;
+}
+.my_nav ul li a:hover{
+    transition: 0.5s ease ;
+    color: #000 !important;
+}
+

@@ -17,7 +17,7 @@ class MontreSeeder extends Seeder
     public function run()
     {
         $montre = new Montre(); 
-        $montre->category_id = 1;
+        $montre->category_id = 7;
         $montre-> nom = 'Rolex en or';
         $montre-> montant ='3000000';
         $montre-> quantité ='4';
@@ -26,7 +26,7 @@ class MontreSeeder extends Seeder
         $montre->save();
 
         $montre = new Montre(); 
-        $montre->category_id = 1;
+        $montre->category_id = 7;
         $montre-> nom = 'Rolex en argent';
         $montre-> montant ='1000000';
         $montre-> quantité ='2';
@@ -40,7 +40,7 @@ class MontreSeeder extends Seeder
         $montre-> quantité ='10';
         $montre-> description ='Montre Rolex en diamant';
         $montre-> image ='3.jpeg';
-        $montre->category_id = 1;
+        $montre->category_id = 8;
         $montre->save();
 
         $montre = new Montre(); 
@@ -76,7 +76,7 @@ class MontreSeeder extends Seeder
         $montre-> quantité ='60';
         $montre-> description ='Montre Casio';
         $montre-> image ='7.jpeg';
-        $montre->category_id = 5;
+        $montre->category_id = 10;
         $montre->save();
 
         $montre = new Montre(); 
@@ -103,7 +103,7 @@ class MontreSeeder extends Seeder
         $montre-> quantité ='13';
         $montre-> description ='Daniel Wellington en Or';
         $montre-> image ='10.jpeg';
-        $montre->category_id = 4;
+        $montre->category_id = 11;
         $montre->save();
 
         $montre = new Montre(); 
@@ -112,7 +112,7 @@ class MontreSeeder extends Seeder
         $montre-> quantité ='3';
         $montre-> description ='Daniel Wellington en argent';
         $montre-> image ='11.jpeg';
-        $montre->category_id = 4;
+        $montre->category_id = 12;
         $montre->save();
 
         $montre = new Montre(); 
@@ -121,7 +121,7 @@ class MontreSeeder extends Seeder
         $montre-> quantité ='32';
         $montre-> description ='Daniel Wellington en diamant';
         $montre-> image ='12.jpeg';
-        $montre->category_id = 4;
+        $montre->category_id = 11;
         $montre->save();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slug;
 use App\Models\Montre;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -15,19 +16,10 @@ class VignetteController extends Controller
      */
     public function index()
     {
-        //Récuperer les données de la table produits
-        
-        //$montreAll = "SELECT*FROM 'produits'";//Méthode 1 
-        //$montreAll = Montre::all();//Méthode 2 
-        $montreAll = Montre::orderBy('id', 'desc')->get();//Méthode 3
-        // $categoryall = Category::all();
-        
 
-        //Retourner les données de montreAll à vignette
-
-        return view('child.vignette', compact("montreAll")); //Méthode 1 
-        //return view('child.vignette')->with("montreAll",$montreAll); //Méthode 2 
-        //return view('child.vignette', ["montreAll" => $montreAll]); //Méthode 3
+        $montreAll = Montre::orderBy('id', 'desc')->get();
+        return view('child.vignette', compact("montreAll")); 
+ 
     }
 
     /**
@@ -61,6 +53,7 @@ class VignetteController extends Controller
     public function show($id)
     {
         // $categoryall = Category::all();
+        
         $montre = Montre::findOrFail($id);
         return view('child.montre')->with("montre", $montre);
 

@@ -4,6 +4,24 @@
 
 @include('portion.header')
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        
+        
+        <li class="breadcrumb-item"><a href="{{route('accueil')}}">Accueil</a></li>
+        <li class="breadcrumb-item active"><a href="{{route('Voir_categorie_produit', ["id"=>$montre->pere->id])}}"> {{$montre->pere->nom}} </a></li>
+        @if ($montre->pere->categorieParent !== null)
+        <li class="breadcrumb-item"><a href="{{route('Voir_categorie_produit', ["id"=>$montre->pere->categorieParent->id])}}"> {{$montre->pere->categorieParent->nom}} </a></li>
+        @else
+        &nbsp;&nbsp; 
+        <li class="breadcrumb-item active"><a href="">Pas de sous catégorie</a></li>
+        &nbsp; &nbsp; 
+        @endif
+
+        
+    </ol>
+</nav>
+
 <main role="main">
 
 
@@ -23,6 +41,13 @@
                 <h1 class="jumbotron-heading"> {{$montre->nom}} </h1>
                 <h5>{{$montre->montant}} CFA</h5>
                 <p class="lead text-muted">{{$montre->description}}</p>
+                @foreach ($montre->slugs as $slug)
+                <p class="text-white">
+                    <a href="{{Route('Voir_slug_produit', ["id" => $slug->id])}}" class="badge badge-dark">
+                      {{$slug->libelle}}
+                    </a> 
+                </p>
+                @endforeach
                 <hr>
                 <label for="size">Choisissez votre taille</label>
                 <select name="size" id="size" class="form-control">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slug;
 use App\Models\Montre;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         // $categoryall = Category::all();
-        return view('portion.header');
+        // return view('portion.header');
     }
 
     /**
@@ -44,15 +45,25 @@ class CategoryController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response 
      */
     public function show(Request $request)
     {
-        $produits = Montre::where('category_id',$request->id)->get();
-        return view('child.categorie', compact("produits"));
+        $categoryPere = Category::findOrfail($request->id);
+        
+        // $produits = $categoryPere->petitFilsProduits()->get(); //Méthode 2
+        $produits = $categoryPere->grandPereProduit();
+
+        return view('child.categorie', compact('produits', 'categoryPere'));
     }
 
-    /**
+    public function slug(Request $request, $id){
+        $slug= Slug::findOrfail($request->id);
+        $produits = $slug->produits()->get();
+        return view('child.categorie', compact('slug', 'produits'));
+    }
+
+    /**<
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
